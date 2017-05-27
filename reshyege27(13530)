@@ -1,0 +1,20 @@
+n = int(input())
+l = list()
+count = None
+for i in range(n):
+    a = input()
+    t = int(a)
+    for i in a:
+        d = int(t%10)
+        l.append(d)
+        t = t/10
+for i in range(len(l)):
+    if count is None:
+        count = l.count(l[i])
+        t = l[i]
+    elif count<l.count(l[i]):
+        t = l[i]
+        count = l.count(l[i])
+    elif count==l.count(l[i]) and t!=l[i]:
+        t = max(t,l[i])
+print(t)
