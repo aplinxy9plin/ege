@@ -1,0 +1,23 @@
+n = int(input())
+sm = list()
+s = 0
+count=None
+for i in range(n):
+    a = input()
+    t = int(a)
+    for i in a:
+        c = int(t%10)
+        s +=c
+        t = t/10
+    sm.append(s)
+    s=0
+for i in range(len(sm)):
+    if count is None:
+        count = sm.count(sm[i])
+        t = sm[i]
+    elif count<sm.count(sm[i]):
+        count = sm.count(sm[i])
+        t = sm[i]
+    elif count==sm.count(sm[i]) and t!=sm[i]:
+        t=min(t,sm[i])
+print(t)
