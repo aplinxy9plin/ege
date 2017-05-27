@@ -1,0 +1,30 @@
+n = int(input())
+l = list()
+c = list()
+count = None
+for i in range(n):
+    a = input()
+    t = int(a)
+    for i in a:
+        d = int(t%10)
+        l.append(d)
+        t = t/10
+for i in range(len(l)):
+    if count is None:
+        count = l.count(l[i])
+        t = l[i]
+    elif count<l.count(l[i]):
+        t = l[i]
+        count = l.count(l[i])
+    elif count==l.count(l[i]) and t!=l[i]:
+        if t not in c:
+            c.append(t)
+        if l[i] not in c:
+            c.append(l[i])
+        t = l[i]
+        c.sort(reverse=True)
+if len(c)!=0 and t in c:
+    for i in range(len(c)):
+        print(c[i], end=' ')
+else:
+    print(t)
