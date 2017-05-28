@@ -1,0 +1,20 @@
+from math import sqrt
+n = int(input())
+l = [0,0,0,0]
+for i in range(n):
+    t = list(map(int, input().split()))
+    if t[0]**2==t[1]**2:
+        if t[0]>0 and t[1]>0:
+            ch = 0
+        elif t[0]<0 and t[1]>0:
+            ch = 1
+        elif t[0]<0 and t[1]<0:
+            ch = 2
+        elif t[0]>0 and t[1]<0:
+            ch = 3
+        l[ch] = max(l[ch], sqrt(t[0]**2+t[1]**2))
+s = max(l[0]*l[1]/2, l[0]*l[3]/2, l[2]*l[3]/2, l[2]*l[1]/2)
+if s==0:
+    print('Треугольника не существует')
+else:
+    print(s)
